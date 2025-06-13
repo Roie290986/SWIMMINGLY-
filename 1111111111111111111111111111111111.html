@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טיפול במים לילדים - המקום שבו הכוח פורח | ראש העין</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .water-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230099ff" fill-opacity="0.2" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            animation: wave 10s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 0 20px;
+            max-width: 900px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 strong {
+            font-weight: 700;
+            color: #4dabf7;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(45deg, #4dabf7, #339af0);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(77, 171, 247, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 10px 30px rgba(77, 171, 247, 0.3); }
+            50% { box-shadow: 0 10px 40px rgba(77, 171, 247, 0.5); }
+            100% { box-shadow: 0 10px 30px rgba(77, 171, 247, 0.3); }
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(77, 171, 247, 0.4);
+        }
+        
+        /* Story Section */
+        .story {
+            padding: 100px 20px;
+            background: #f8f9fa;
+            position: relative;
+        }
+        
+        .story::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #4dabf7, transparent);
+            opacity: 0.3;
+        }
+        
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .story h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #1a1a2e;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .story-text {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .story-text p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #495057;
+        }
+        
+        .story-highlight {
+            font-size: 1.5em;
+            color: #4dabf7;
+            font-weight: 600;
+            display: block;
+            margin: 30px 0;
+        }
+        
+        /* What I Offer Section */
+        .offer {
+            padding: 100px 20px;
+            background: white;
+        }
+        
+        .offer h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #1a1a2e;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .offer-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+            border-color: #4dabf7;
+            box-shadow: 0 20px 40px rgba(77, 171, 247, 0.1);
+        }
+        
+        .offer-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4dabf7, #339af0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2em;
+            color: white;
+        }
+        
+        .offer-card h3 {
+            font-size: 1.5em;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        
+        .offer-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .process h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #1a1a2e;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: center;
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .timeline-number {
+            width: 60px;
+            height: 60px;
+            background: #4dabf7;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-left: 30px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        
+        .timeline-content h3 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 20px;
+            background: white;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #1a1a2e;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            font-style: italic;
+            color: #495057;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 4em;
+            color: #4dabf7;
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            margin-top: 20px;
+            font-style: normal;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .final-cta p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            padding: 40px;
+            border-radius: 20px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-box p {
+            font-size: 1.2em;
+            margin: 15px 0;
+        }
+        
+        .phone-cta {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 20px 50px;
+            background: linear-gradient(45deg, #40c057, #51cf66);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(64, 192, 87, 0.3);
+        }
+        
+        .phone-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(64, 192, 87, 0.4);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .story-text {
+                padding: 30px;
+            }
+            
+            .offer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-number {
+                margin: 0 0 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="water-animation"></div>
+        <div class="hero-content">
+            <h1>הילד שהמים <strong>לימדו אותו לנשום</strong></h1>
+            <p class="hero-subtitle">טיפול במים לילדים עם ADHD, חרדות וקשיי ויסות חושי</p>
+            <a href="https://wa.me/972554336490" class="cta-primary">כתבו לנו בוואטסאפ</a>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="story-container">
+            <h2>כל ילד סוער הוא ילד שמחפש את הים שלו</h2>
+            <div class="story-text">
+                <p>הייתי הילד הזה. זה שהגוף שלו לא הפסיק לזוז. שהרעש בראש שלו היה חזק יותר מכל רעש שיצר בחוץ.</p>
+                <span class="story-highlight">ואז נכנסתי למים.</span>
+                <p>מתחת למים גיליתי סוד: השקט הכי עמוק נמצא בלב הסערה. האנרגיה שכולם ניסו לכבות הייתה בדיוק מה שדחף אותי קדימה.</p>
+                <p>היום אני מלווה ילדים במסע הזה. אני רואה את עצמי בעיניים שלהם. את הפחד, את הכמיהה, את הכוח שמחכה להתגלות.</p>
+                <p><strong>כי כל ילד סוער הוא בעצם ילד שעוד לא מצא את המים שלו.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Offer Section -->
+    <section class="offer">
+        <h2>מה קורה כשילד פוגש את המים?</h2>
+        <div class="offer-grid">
+            <div class="offer-card">
+                <div class="offer-icon">🌊</div>
+                <h3>מוצאים שקט בתוך התנועה</h3>
+                <p>ילדים עם ADHD מגלים שאפשר להיות בתנועה ובשקט בו זמנית. המים מלמדים אותם לתעל את האנרגיה, לא לכבות אותה.</p>
+            </div>
+            <div class="offer-card">
+                <div class="offer-icon">💙</div>
+                <h3>בונים אמון מחדש</h3>
+                <p>ילדים עם חרדות לומדים לסמוך - על המים שמחזיקים אותם, על הגוף שלהם, על העולם. צעד אחר צעד, נשימה אחר נשימה.</p>
+            </div>
+            <div class="offer-card">
+                <div class="offer-icon">✨</div>
+                <h3>מווסתים את החושים</h3>
+                <p>הלחץ העדין של המים, הטמפרטורה הנעימה, התנועה הזורמת - כל אלה נותנים למערכת העצבים בדיוק מה שהיא צריכה.</p>
+            </div>
+            <div class="offer-card">
+                <div class="offer-icon">🎯</div>
+                <h3>מפתחים ריכוז אמיתי</h3>
+                <p>במים אין הסחות. יש רק הרגע הזה, הנשימה הזו. ילדים לומדים מהו ריכוז אמיתי - לא כפוי, אלא טבעי.</p>
+            </div>
+            <div class="offer-card">
+                <div class="offer-icon">💪</div>
+                <h3>מגלים כוח פנימי</h3>
+                <p>כל הצלחה קטנה במים בונה ביטחון גדול ביבשה. ילדים מגלים שהם יכולים הרבה יותר ממה שחשבו.</p>
+            </div>
+            <div class="offer-card">
+                <div class="offer-icon">🌟</div>
+                <h3>פוגשים את עצמם</h3>
+                <p>במים אין מסכות. יש רק את הילד האמיתי, עם כל הכוחות שלו. וזה המקום שבו הקסם מתחיל.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <h2>המסע שלנו יחד</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <h3>מפגש היכרות</h3>
+                    <p>נכיר, נבין את הצרכים, ניצור קשר ראשוני עם המים - בלי לחץ, בקצב של הילד.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <h3>בניית אמון</h3>
+                    <p>נלמד להכיר את המים כחברים. כל ילד בדרך שלו, בזמן שלו.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <h3>גילוי הכוחות</h3>
+                    <p>נתחיל לגלות מה המים מאפשרים - תנועה חופשית, נשימה עמוקה, שקט פנימי.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <h3>הפנמה והעצמה</h3>
+                    <p>מה שנלמד במים יתחיל להשפיע גם ביבשה. הביטחון, השלווה, היכולת.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>קולות של שינוי</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>הבן שלי חזר מהמפגש הראשון ואמר: 'אמא, במים אני יכול להיות אני'. לא הפסקתי לבכות.</p>
+                <div class="testimonial-author">- אמא לילד בן 9</div>
+            </div>
+            <div class="testimonial">
+                <p>אחרי שנים של טיפולים, סוף סוף מצאנו משהו שעובד. הבת שלי רגועה, שמחה, מאמינה בעצמה.</p>
+                <div class="testimonial-author">- אבא לילדה בת 7</div>
+            </div>
+            <div class="testimonial">
+                <p>זה לא רק שחייה. זה מקום שבו הילד שלנו למד שהוא בסדר בדיוק כמו שהוא.</p>
+                <div class="testimonial-author">- הורים לילד בן 10</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="contact">
+        <h2>הצעד הראשון הוא תמיד הכי קשה</h2>
+        <p>אבל אתם לא לבד. אני כאן כדי ללוות אתכם ואת הילד שלכם במסע הזה.</p>
+        
+        <div class="contact-box">
+            <p>📍 גבעת טל, ראש העין</p>
+            <p>🏊 בריכה פרטית ומחוממת</p>
+            <p>👨‍⚕️ ליווי מקצועי ואישי</p>
+            <p>❤️ גישה שמאמינה בכל ילד</p>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <a href="tel:03-3030390" class="phone-cta" style="margin: 10px;">📞 התקשרו: 03-3030390</a>
+            <a href="https://wa.me/972554336490" class="phone-cta" style="margin: 10px; background: linear-gradient(45deg, #25D366, #128C7E);">💬 כתבו לנו בוואטסאפ</a>
+        </div>
+    </section>
+</body>
+</html>
